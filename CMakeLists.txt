@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(foveated_yolt)
 
 set(ROS FALSE)
-set(CLASSIFICATION TRUE)
+set(CLASSIFICATION FALSE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules/")
 
 SET(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -Wno-deprecated-declarations -std=c++11")
@@ -28,10 +28,15 @@ option(-std "std" c++11)
 
 include_directories(
 	include
-	${Caffe_INCLUDE_DIRS}
 	${PYTHON_INCLUDE_DIR}
 	${PYTHON_NUMPY_INCLUDE_DIR}
 )
+
+if(${CLASSIFICATION})
+	include_directories(
+	${Caffe_INCLUDE_DIRS}
+	)
+endif(${CLASSIFICATION})
 
 set(GLOG_LIB glog)
 

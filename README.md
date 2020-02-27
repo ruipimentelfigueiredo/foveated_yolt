@@ -50,7 +50,13 @@ If you use our code, please cite our work:
 }
 ```
 
-To test the python wrapper on an example image, change the ```filename='filename.jpg' ```, and run the following command from the root directory:
+To test the python wrapper on an example image, first add the created modules to the python path, running the following command from the root directory:
+
+```
+export PYTHONPATH=$PYTHONPATH:./build
+```
+
+Then change the ```filename='filename.jpg' ```, and run the following command from the root directory:
 
 ```
 python src/python_bindings/test.py

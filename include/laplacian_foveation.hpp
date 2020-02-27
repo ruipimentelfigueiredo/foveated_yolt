@@ -11,7 +11,7 @@ class LaplacianBlending {
         LaplacianBlending(const int & _width, const int & _height, const int & _levels, const int & _sigma_x, const int & _sigma_y, const int & _sigma_xy=0);
         ~LaplacianBlending();
 
-        cv::Mat Foveate(const cv::Mat &image, cv::Mat center);
+        cv::Mat Foveate(const cv::Mat &image, const cv::Mat &center);
 
 	// Change
 	void CreateFilterPyr(const int & width, const int & height, const int & _sigma_x, const int & _sigma_y, const int & sigma_xy=0);
